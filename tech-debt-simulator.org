@@ -1,0 +1,69 @@
+#+TITLE: tech debt simulator
+
+* Core Gameplay Loop
+
+  The idea is to eventually bury the user in an unmanagable stack of Issues and
+  force him to reboot his company by being bought out
+
+  The user begins with a commit button and some pending issues, and with every
+  [[commit]] he adds LOC and makes progress on those issues.
+
+  - Press commit button
+    1) Add LOC
+    2) Progress on Issues
+    3) Complete Money Sprints or Research Sprints
+  - Once enough Money Sprints are completed, the user will gain enough money to:
+    - Buy Developers, which would automatically commit on Issues
+    - Buy Software, which would reduce the LOC per commit
+    - Eventually buy Startups/Companies, which would add chunks of
+      Developers/Software at the price of LOC.
+  - Once enough LOC is accumulated, every time an Issue is spawned the chance to
+    spawn other unrelated maintainence Issues increases.
+    - The player must work on Devops Sprints to reduce LOC and bad code scaling
+  - The player can always choose to sell his company, keeping a fraction of his
+    Developers and getting a lot of Money.
+
+** Commits
+   <<commit>>
+
+   There's one button that the user can press. Each click will represent one
+   commit, and do the following:
+
+   - Add additional Lines of Code (LOC)
+   - Add progress to one of the existing Issues
+   - Potentially create another Issue (?)
+
+** Sprint
+
+   Everytime all the issues belonging to a Sprint is completed, the Feature Set
+   is considered complete and a new Sprint (or more) is generated. Sprints can
+   belong to the following groups
+
+   - Research Sprints :: Completing these adds progress to unlocking new
+        features, as well as increase LOC.
+   - Money Sprints :: Completing these gives you money, as well as increase LOC
+   - Devops Sprints :: Completing this reduces LOC
+
+*** Sprint Backlog
+
+    This is where all the random events spawn. Sprint Backlogs describe a list
+    of potential choices the player can make. The backlog size is fixed,
+    increasable with upgrades
+
+*** Issues
+
+    Issues are features that must be implemented. Each issue belongs to a Sprint,
+    described by a colour scheme.
+
+**** Issue Generation
+      How would we generate issues?
+
+** Lines of Code (LOC)
+
+   The more lines of code, the less agile your project will be.
+
+   This means that:
+   - The backlog starts spawning more devops sprints
+   - Developers become less productive (commits less often)
+
+** Money
